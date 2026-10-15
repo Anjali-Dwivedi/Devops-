@@ -15,6 +15,17 @@ Transform resume achievements into a complete, professional, interview-ready Dev
 5. **Incremental delivery** — Do not attempt enormous unverified one-shot implementations. Milestone → verify → update tracker → continue.
 6. **Private during development** — Keep work private until a confidentiality review and explicit publication approval.
 
+## Diagram priority (interview signal)
+
+Architecture diagrams are a **first-class deliverable**, not an afterthought.
+
+- Maintain a polished gallery under `docs/architecture/` (editable Mermaid + draw.io + rendered SVG/PNG).
+- Landing `README.md` must lead with the hero diagram and gallery links.
+- Every project README embeds the relevant rendered diagrams.
+- Visual language stays consistent: navy = control plane, teal = data path, amber = decision/approval, crimson = failure/block.
+- When behavior changes, update sources and re-run `docs/architecture/scripts/render-all.sh` in the same change set.
+- Prefer technically dense diagrams (C4, sequence, failure/recovery, threat boundaries) over decorative clipart.
+
 ## Execution stages (in order)
 
 | Stage | Action |

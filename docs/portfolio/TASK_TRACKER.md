@@ -1,84 +1,45 @@
 # Portfolio Task Tracker
 
 Last updated: 2026-10-15  
-Branch: `cursor/portfolio-foundation-0812`  
-Owner: autonomous portfolio agent
-
-## Status legend
-
-- `[ ]` pending
-- `[~]` in progress
-- `[x]` done
-- `[!]` blocked
-- `[-]` cancelled / N/A
+Branch: `cursor/portfolio-foundation-0812`
 
 ## Phase 0 — Foundation
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| P0-1 | Inspect workspace, git, tools | [x] | Repo mostly empty; tooling inventory recorded |
-| P0-2 | Persistent operating instructions (`AGENTS.md`, `.cursor/rules`) | [x] | Created |
-| P0-3 | Task tracker + completion checklist | [x] | This file + COMPLETION_CHECKLIST |
-| P0-4 | Locate / ingest resume | [!] | **BLOCKER: resume file not in workspace** |
-| P0-5 | Tooling gap remediation plan | [x] | See ASSUMPTIONS.md — docker/tf/k8s not preinstalled |
-| P0-6 | Roadmap + empty traceability scaffold | [x] | Awaiting resume to populate |
+| P0-1 | Inspect workspace / tools | [x] | |
+| P0-2 | AGENTS.md + Cursor rules | [x] | Includes diagram-priority rule |
+| P0-3 | Trackers / checklist | [x] | |
+| P0-4 | Ingest resume | [x] | Private store copy; not in git |
+| P0-5 | Retarget `devops-resume-portfolio` | [!] | **403 write denied** for cursor[bot] — work on `Devops-` until access granted |
 
-## Phase 1 — Resume → project mapping
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P1-1 | Extract all technical bullets | [!] | Needs resume |
-| P1-2 | Map bullets → projects + evidence | [!] | Needs resume |
-| P1-3 | Group into coherent project set | [!] | Needs resume |
-| P1-4 | Prioritize foundation project | [!] | Needs resume |
-
-## Phase 2 — Design (per prioritized project)
+## Diagrams (priority)
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| P2-1 | Architecture + tech selection | [ ] | |
-| P2-2 | Implementation plan + acceptance criteria | [ ] | |
-| P2-3 | Cost/security/teardown plan (if cloud) | [ ] | Approval gate before provision |
+| D1 | Architecture gallery + hero SVG | [x] | `docs/architecture/` |
+| D2 | 11 Mermaid sources rendered SVG/PNG | [x] | CI/CD, canary, TF, IAM, C4, … |
+| D3 | Flagship draw.io board | [x] | `sources/flagship-platform.drawio` |
+| D4 | README leads with diagrams | [x] | |
+| D5 | Project READMEs embed diagrams | [x] | All four projects |
 
-## Phase 3 — Implement & verify (iterate per project)
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P3-1 | Sample app / workloads | [ ] | |
-| P3-2 | IaC / config / scripts | [ ] | |
-| P3-3 | CI/CD + quality gates | [ ] | |
-| P3-4 | Observability + alerts (as applicable) | [ ] | |
-| P3-5 | Success + failure demos | [ ] | |
-| P3-6 | Diagrams (editable + rendered) | [ ] | |
-| P3-7 | Tests / lint / security checks | [ ] | |
-| P3-8 | Docs + runbooks + interview Q&A | [ ] | |
-| P3-9 | Staff-level interview review + fixes | [ ] | |
-
-## Phase 4 — Portfolio packaging
+## Implementation
 
 | ID | Task | Status | Notes |
 |----|------|--------|-------|
-| P4-1 | Landing page / index repo structure | [ ] | |
-| P4-2 | Resume↔project link table | [ ] | |
-| P4-3 | Secret/confidentiality review | [ ] | Before public |
-| P4-4 | Publication approval request | [ ] | Approval gate |
-| P4-5 | Verified repo URLs | [ ] | |
+| I1 | Traceability matrix from resume | [x] | B01–B14 |
+| I2 | ci-cd-container-platform | [~] | App + tests + Docker + gates verified; polish ongoing |
+| I3 | terraform-remote-state | [ ] | README + diagram only |
+| I4 | k8s-progressive-delivery | [ ] | README + diagrams only |
+| I5 | observability-incident-lab | [ ] | README + diagrams only |
 
-## Phase 5 — Cloud demos (approval-gated)
+## Verified this session
 
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P5-1 | Deployment plan for approval | [ ] | |
-| P5-2 | Provision + verify + evidence | [ ] | Only after approval |
-| P5-3 | Teardown temps | [ ] | |
-
-## Phase 6 — Final report
-
-| ID | Task | Status | Notes |
-|----|------|--------|-------|
-| P6-1 | Independent final review | [ ] | |
-| P6-2 | Concise report to human | [ ] | |
+- `pytest`: 7 passed
+- Config gate demo: bad blocked / good allowed
+- Image compare: single-stage 439.5 MB → multi-stage 59.3 MB (**86.5%** reduction in this environment)
 
 ## Active blockers
 
-1. **Resume missing** — No resume PDF/DOCX/MD/TXT found under `/workspace` or project store. Cannot extract bullets or design projects without inventing content (forbidden).
+1. Grant Cursor write access to https://github.com/Anjali-Dwivedi/devops-resume-portfolio (or rebind agent to that repo) so content can be published there.
+2. Cloud deploy still approval-gated (none requested yet).

@@ -1,23 +1,27 @@
 # Portfolio Roadmap
 
-## Principle
+## Canonical destination
 
-Highest-value foundation project first (usually: reproducible platform sample + CI quality gates + observability hooks), then deepen adjacent themes from the resume. Avoid many shallow repos.
+- **Intended public portfolio repo:** https://github.com/Anjali-Dwivedi/devops-resume-portfolio  
+- **Current agent write access:** only `Anjali-Dwivedi/Devops-` (push to `devops-resume-portfolio` returned 403 for `cursor[bot]`)  
+- Until write access is granted, all work lands here and is marked for migration.
 
-## Tentative sequencing (refine after resume)
+## Sequencing
 
-1. **Foundation / platform sample** — containerized service, local compose or kind, CI lint+test+image build, health/readiness, basic metrics
-2. **CI/CD & progressive delivery** — gated pipeline, canary or blue/green with automated rollback demo
-3. **Infrastructure as Code** — Terraform (or equivalent) modules, plan review, policy checks, safe apply story
-4. **Observability & incident response** — synthetic failure → metrics/logs → alert → runbook
-5. **Security / supply chain** — scanning, SBOM, least-privilege IAM patterns, secret hygiene
-6. **Landing repository** — portfolio index, resume↔project map, interview prep hub
+| Priority | Project | Why first | Cloud cost |
+|----------|---------|-----------|------------|
+| P0 | `ci-cd-container-platform` | Foundation for every other demo; matches strongest CI/Docker bullets | None (local/CI) |
+| P1 | `terraform-remote-state` | Core IaC bullet; validate/plan without applying | Local free; AWS optional (approval) |
+| P2 | `k8s-progressive-delivery` | Blue-green/canary differentiator for senior interviews | kind local free; AWS EKS gated |
+| P3 | `observability-incident-lab` | Release/reliability narrative (TA I experience) | Compose local free |
 
-Exact project titles, tech choices, and ordering will be rewritten from the resume mapping (Phase 1). No cloud provision until an approved deployment plan exists.
+## Definition of “foundation complete”
 
-## Near-term (unblocked now)
-
-- [x] Operating instructions
-- [x] Trackers / checklist / matrix scaffold
-- [ ] Ingest resume (human action required)
-- [ ] Produce project set + prioritize P0 implementation
+- [x] Resume ingested (private)
+- [x] Traceability matrix populated
+- [ ] P0 project verified (tests + docker build + failure gate demo)
+- [ ] P1 terraform validate passes
+- [ ] P2 kind canary rollback demo scripted
+- [ ] P3 synthetic incident demo scripted
+- [ ] Landing README interview-ready
+- [ ] Content migrated or pushed to `devops-resume-portfolio` (access gated)
