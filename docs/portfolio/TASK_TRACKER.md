@@ -41,5 +41,12 @@ Branch: `cursor/portfolio-foundation-0812`
 
 ## Active blockers
 
-1. Grant Cursor write access to https://github.com/Anjali-Dwivedi/devops-resume-portfolio (or rebind agent to that repo) so content can be published there.
+1. **Publish to `devops-resume-portfolio`** — push still **403** for `cursor[bot]`.
+   - Fix A: GitHub → Applications → Cursor → add repo `devops-resume-portfolio` with Contents write → reply and agent pushes.
+   - Fix B (self-serve):
+     ```bash
+     git clone https://github.com/Anjali-Dwivedi/Devops-.git && cd Devops-
+     git checkout cursor/portfolio-foundation-0812
+     git push -u https://github.com/Anjali-Dwivedi/devops-resume-portfolio.git HEAD:main
+     ```
 2. Cloud deploy still approval-gated (none requested yet).
